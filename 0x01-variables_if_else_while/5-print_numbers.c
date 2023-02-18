@@ -7,15 +7,10 @@
 
 int main(void)
 {
-
-	num[10];
-
-	i = 0;
-	while
-		(i < 10)
-		{
-			printf(num"%d'\n", i);
-			i++;
-		}
+	for (a = 0; a <= 10; a++)
+	{
+		putchar(a);
+	}
+	putchar('\n')
 	return (0);
 }

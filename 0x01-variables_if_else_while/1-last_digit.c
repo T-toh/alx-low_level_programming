@@ -1,12 +1,8 @@
 #include <stdlib.h>
 #include <time.h>
-#include <stdio.h>
-/**
- * main - Program prints a random number of last digit once executed
- * and indicates whether is greater that 5, less than 6, or 0
- *
- * Return: Always 0.
- */
+/* more headers goes there */
+
+/* betty style doc for function main goes there */
 int main(void)
 {
 	int n;

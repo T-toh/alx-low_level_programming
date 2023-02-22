@@ -46,5 +46,3 @@ void jack_bauer(void)
 		h2++;
 	}
 }
-	
-

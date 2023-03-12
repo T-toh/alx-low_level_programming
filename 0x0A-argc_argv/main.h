@@ -1,8 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
-
-#include <stdio.h>
-
-int main(int argc, char *argv[] __attribute__((unused)));
-
-#endif /* MAIN_H */
+int _putchar(char c);
+int main(int argc, char *argv[]);
+int checkString(char *Str);
+#endif

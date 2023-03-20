@@ -2,43 +2,52 @@
 #include <stdlib.h>
 
 /**
- * _strlen - prints the size of a string in bytes
+ * new_dog - creates a new dog.
+ * @name: name of the dog.
+ * @age: age of the dog.
+ * @owner: owner of the dog.
  *
- * @s: pointer that will store the string's location
- *
- * Return: size of the string without the null \0 placed at the end of it
+ * Return: struct dog.
+ * if fails, returns NULL.
  */
-int _strlen(char *s)
+dog_t *new_dog(char *name, float age, char *owner)
 {
-	int num;
+	dog_t *p_dog;
+	int i, lname, lowner;
 
-	num = 0;
-	while (*s != 0)
+	p_dog = malloc(sizeof(*p_dog));
+	if (p_dog == NULL || !(name) || !(owner))
 	{
-		num++;
-		s++;
+		free(p_dog);
+		return (NULL);
 	}
-	return (num);
-}
 
-/**
- * _strcpy - copies the string from a pointer to another
- *
- * @src: pointer that has the string information
- * @dest: pointer to be copied
- *
- * Return: string copied to dest
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i;
+	for (lname = 0; name[lname]; lname++)
+		;
 
-	for (i = 0; *src != 0; dest++, src++, i++)
+	for (lowner = 0; owner[lowner]; lowner++)
+		;
+
+	p_dog->name = malloc(lname + 1);
+	p_dog->owner = malloc(lowner + 1);
+
+	if (!(p_dog->name) || !(p_dog->owner))
 	{
-		*dest = *src;
+		free(p_dog->owner);
+		free(p_dog->name);
+		free(p_dog);
+		return (NULL);
 	}
-	for (*dest = 0; i > 0; dest--, src--, i--)
-	{
-	}
-	return (dest);
+
+	for (i = 0; i < lname; i++)
+		p_dog->name[i] = name[i];
+	p_dog->name[i] = '\0';
+
+	p_dog->age = age;
+
+	for (i = 0; i < lowner; i++)
+		p_dog->owner[i] = owner[i];
+	p_dog->owner[i] = '\0';
+
+	return (p_dog);
 }
